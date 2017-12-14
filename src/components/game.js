@@ -12,14 +12,23 @@ export default class Game extends React.Component {
 
         this.state = {
             guesses: [],
-            targetNumber: 14,
+            targetNumber: Math.round(1 + Math.random() * (100 - 1)),
             feedback: 'Make your guess!'
         }
+    }
 
+    newGame() {
+        const min = 1;
+        const max = 100;
+        this.setState({
+            guesses: [],
+            targetNumber: Math.round(1 + Math.random() * (100 - 1)),
+            feedback: 'Make your guess!'
+        })
     }
 
     updateGuesses(value) {
-        console.log(value);
+        console.log(this.state.targetNumber);
         if (value+'' === this.state.targetNumber+'') {
             this.setState({
                 guesses: this.state.guesses.concat(value),
@@ -37,7 +46,7 @@ export default class Game extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header newGame={this.newGame.bind(this)} />
                 <GuessSection updateGuesses={this.updateGuesses.bind(this)} feedback={this.state.feedback} />
                 <GuessCount count={this.state.guesses.length} />
                 <GuessList guesses={this.state.guesses} />
