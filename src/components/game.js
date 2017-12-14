@@ -17,11 +17,15 @@ export default class Game extends React.Component {
 
     }
 
+    updateGuesses() {
+
+    }
+
     render() {
         return (
             <div>
                 <Header />
-                <GuessSection feedback="Make your guess!" />
+                <GuessSection updateGuesses={this.updateGuesses.bind(this)} feedback="Make your guess!" />
                 <GuessCount count={this.state.guesses.length} />
                 <GuessList guesses={this.state.guesses} />
             </div>
