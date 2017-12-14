@@ -10,14 +10,6 @@ export default class GuessSection extends React.Component {
         super(props);
     }
 
-    // onChangeTest(input) {
-    //     console.log(input);
-    // }
-
-    // onSubmit(input) {
-    //     this.props.updateGuesses(input);
-    // }
-
     render() {
         return (
             <section>
@@ -29,13 +21,4 @@ export default class GuessSection extends React.Component {
         );
     }
 }
-
-// export default function GuessSection(props) {
-//     return (
-//         <section>
-//             <h2 id="feedback">{props.feedback}</h2>
-//             <GuessForm />
-//         </section>
-//     );
-// }
 
