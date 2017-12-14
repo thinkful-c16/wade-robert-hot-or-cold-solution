@@ -28,6 +28,11 @@ export default class Game extends React.Component {
     }
 
     updateGuesses(value) {
+        let guessDistance=Math.abs(value - this.state.targetNumber);
+        let feedbackText='';
+        switch(guessDistance){
+            case 
+        }
         console.log(this.state.targetNumber);
         if (value+'' === this.state.targetNumber+'') {
             this.setState({
@@ -38,7 +43,8 @@ export default class Game extends React.Component {
         }
         else{
             this.setState({
-                guesses: this.state.guesses.concat(value)
+                guesses: this.state.guesses.concat(value),
+                feedback: feedbackText
             })
         }
     }
