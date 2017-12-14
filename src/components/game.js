@@ -11,14 +11,21 @@ export default class Game extends React.Component {
         super(props);
 
         this.state = {
-            guesses: [2, 3, 4, 9, 45, 44],
+            guesses: [],
             targetNumber: 14
         }
 
     }
 
-    updateGuesses() {
-
+    updateGuesses(value) {
+        if (value === this.state.targetNumber) {
+            console.log('You won!')
+        }
+        else{
+            this.setState({
+                guesses: this.state.guesses.concat(value)
+            })
+        }
     }
 
     render() {

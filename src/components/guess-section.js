@@ -14,16 +14,16 @@ export default class GuessSection extends React.Component {
     //     console.log(input);
     // }
 
-    onSubmit(input) {
-        console.log(input);
-    }
+    // onSubmit(input) {
+    //     this.props.updateGuesses(input);
+    // }
 
     render() {
         return (
             <section>
                 <h2 id="feedback">{this.props.feedback}</h2>
                 <GuessForm 
-                onSubmit={event => this.onSubmit(event)}
+                onSubmit={(value) => this.props.updateGuesses(value)}
                 />
             </section>
         );
