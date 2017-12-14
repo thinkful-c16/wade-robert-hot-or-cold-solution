@@ -12,13 +12,19 @@ export default class Game extends React.Component {
 
         this.state = {
             guesses: [],
-            targetNumber: 14
+            targetNumber: 14,
+            feedback: 'Make your guess!'
         }
 
     }
 
     updateGuesses(value) {
-        if (value === this.state.targetNumber) {
+        console.log(value);
+        if (value+'' === this.state.targetNumber+'') {
+            this.setState({
+                guesses: this.state.guesses.concat(value),
+                feedback: 'Congratulations! You won!'
+            })
             console.log('You won!')
         }
         else{
@@ -32,22 +38,11 @@ export default class Game extends React.Component {
         return (
             <div>
                 <Header />
-                <GuessSection updateGuesses={this.updateGuesses.bind(this)} feedback="Make your guess!" />
+                <GuessSection updateGuesses={this.updateGuesses.bind(this)} feedback={this.state.feedback} />
                 <GuessCount count={this.state.guesses.length} />
                 <GuessList guesses={this.state.guesses} />
             </div>
         );
     }
 }
-
-// export default function Game(props) {
-//     return (
-//         <div>
-//             <Header />
-//             <GuessSection feedback="Make your guess!" />
-//             <GuessCount count={3} />
-//             <GuessList guesses={[10, 15, 25]} />
-//         </div>
-//     );
-// }
 
