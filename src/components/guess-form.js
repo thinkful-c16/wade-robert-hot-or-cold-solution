@@ -23,13 +23,15 @@ export default class GuessForm extends React.Component {
         }
     }
 
-    onSubmit(event, input) {
-        event.preventDefault();
-        this.props.onSubmit(input);
-        this.setState({
-        	inputValue: ''
-        });
-    }
+	onSubmit(event, input) {
+		if(input!==''){
+			event.preventDefault();
+			this.props.onSubmit(input);
+			this.setState({
+				inputValue: ''
+			});
+		}
+	}
 
     render() {
         return (
